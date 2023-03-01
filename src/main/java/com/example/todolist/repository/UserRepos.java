@@ -4,4 +4,5 @@ import com.example.todolist.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepos extends CrudRepository<User, Long> {
+    User findByUsername(String username);
 }

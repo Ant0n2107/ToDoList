@@ -15,6 +15,9 @@ public class UserController {
     @PostMapping
     public ResponseEntity registration(@RequestBody User user) {
         try{
+//            if (UserRepos.findByUsername(user.getUsername()) != null){
+//                return ResponseEntity.badRequest().body("Произошла ошибка");
+//            }
             userRepos.save(user);
             return ResponseEntity.ok("Пользователь сохранен");
         } catch (Exception e) {
