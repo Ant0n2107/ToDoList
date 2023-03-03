@@ -1,20 +1,20 @@
-package com.example.todolist.model;
+package com.example.todolist.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-public class UserModel {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
     private String password;
 
-    public UserModel() {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<ToDoEntity> todos;
+    public UserEntity() {
     }
 
     public void setId(Long id) {
