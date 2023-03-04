@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "users")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +16,14 @@ public class UserEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<ToDoEntity> todos;
     public UserEntity() {
+    }
+
+    public List<ToDoEntity> getTodos() {
+        return todos;
+    }
+
+    public void setTodos(List<ToDoEntity> todos) {
+        this.todos = todos;
     }
 
     public void setId(Long id) {

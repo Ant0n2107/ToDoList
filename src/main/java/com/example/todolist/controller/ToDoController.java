@@ -12,8 +12,7 @@ public class ToDoController {
     @Autowired
     private ToDoService toDoService;
     @PostMapping
-    public ResponseEntity createToDo(@RequestBody ToDoEntity todo,
-                                     @RequestParam Long userid){
+    public ResponseEntity createToDo(@RequestBody ToDoEntity todo, Long userid){
         try {
             return ResponseEntity.ok(toDoService.createToDo(todo, userid));
         } catch (Exception e) {

@@ -3,17 +3,27 @@ package com.example.todolist.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "todo")
 public class ToDoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private boolean completed;
+    private String description;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
     public ToDoEntity() {
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getId() {
